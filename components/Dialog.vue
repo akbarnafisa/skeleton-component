@@ -6,7 +6,9 @@
     <transition name="alert-dialog">
       <div v-if="isDisplay" class="dialog__container">
         <div class="dialog__inner">
-          <dialog-content />
+          <transition name="fade" mode="out-in">
+            <dialog-content />
+          </transition>
         </div>
       </div>
     </transition>
