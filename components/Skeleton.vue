@@ -5,14 +5,14 @@
     :css="transition && hasChild ? true : false"
   >
     <slot v-if="isLoaded" />
-    <div v-else>
+    <span v-else>
       <span
         v-for="index in rep"
         :key="index"
         :class="componentClass"
         :style="componentStyle"
       />
-    </div>
+    </span>
   </transition>
 </template>
 
@@ -22,7 +22,7 @@ export default {
     animation: {
       type: [String, Boolean],
       default: 'wave',
-      validator: (val) => ['wave', false].includes(val),
+      validator: val => ['wave', false].includes(val),
     },
     h: {
       type: String,
@@ -83,15 +83,15 @@ export default {
 <style lang="less">
 .skeleton-enter-active,
 .skeleton-leave-active-active {
-  transition: opacity 0.1s ease-in-out;
-  -webkit-transition: -webkit-opacity 0.1s ease-in-out;
+  transition: opacity 0.15s ease-in-out;
+  -webkit-transition: -webkit-opacity 0.15s ease-in-out;
 }
 
 .skeleton-enter,
 .skeleton-leave-active {
   opacity: 0;
-  transition: opacity 0.1s ease-in-out;
-  -webkit-transition: -webkit-opacity 0.1s ease-in-out;
+  transition: opacity 0.15s ease-in-out;
+  -webkit-transition: -webkit-opacity 0.15s ease-in-out;
 }
 
 .skeleton {
